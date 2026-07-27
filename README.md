@@ -1,6 +1,8 @@
-# DFIR Triage Toolkit
+# Windows DFIR Toolkit
 
 Automated collection, parsing, and timelining of Windows host artifacts for rapid incident response triage. Built to compress the "acquire → parse → timeline" phase of an investigation from hours to minutes on a live or imaged host.
+
+Windows-specific by design — this toolkit is built around KAPE, which only runs on Windows. Linux and Mac counterparts (built around UAC and Aftermath, respectively) are planned as separate sibling repos rather than folded into this one, since each platform's collection tooling and output format is different enough to warrant its own pipeline.
 
 ## Why this exists
 
@@ -63,8 +65,8 @@ docs/         -> methodology notes, ATT&CK mapping
 - A source to collect from — the live machine itself (`-SourceDrive C:`), a mounted image, or a remote/UNC path KAPE can read.
 
 ```powershell
-git clone https://github.com/zook5098/dfir-triage-toolkit
-cd dfir-triage-toolkit
+git clone https://github.com/zook5098/windows-dfir-toolkit
+cd windows-dfir-toolkit
 pip install -r requirements.txt
 
 # Collect with KAPE (targets + modules in one pass)
