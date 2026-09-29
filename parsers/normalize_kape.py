@@ -123,7 +123,7 @@ def parse_shimcache_row(row):
     path = _get(row, "Path", default="UNKNOWN")
     executed = _get(row, "Executed")
     action = "shimcache_executed" if executed and executed.lower() in ("true", "1") else "shimcache_entry"
-    return [{"timestamp": timestamp, "artifact_type": "amcache", "action": action, "detail": path}]
+    return [{"timestamp": timestamp, "artifact_type": "shimcache", "action": action, "detail": path}]
 
 
 def parse_recmd_row(row):

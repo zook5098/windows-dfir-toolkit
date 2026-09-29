@@ -57,17 +57,19 @@ module name were both renamed upstream). If a module gets skipped with
 or by checking your `Modules` folder before assuming the target itself
 failed to collect.
 
-Both the target list and module list are override-able via `run_kape.ps1
+Both the target list and module list are overridable via `run_kape.ps1
 -Targets` / `-Modules` for scoped, one-off collections (e.g. registry-only).
 
 ## Curated set vs. a KAPE compound target
 
 `run_kape.ps1` can run in one of two target modes:
 
-- **Curated (default)** — the scoped 7-target set above, chosen to feed
-  exactly the artifact types `parsers/normalize_kape.py` knows how to
-  normalize. Fast, predictable output size, and everything collected ends
-  up in the timeline.
+- **Curated (default)** — the scoped 7-target set above, chosen to feed the
+  primary artifact types `parsers/normalize_kape.py` knows how to normalize.
+  Fast and predictable output size: CSVs produced by the listed modules end
+  up in the timeline, while unsupported output remains in the collection for
+  manual review. In particular, `ScheduledTasks` is collected as raw evidence
+  but does not yet have a configured module or normalizer.
 - **KAPE compound target** (`-CompoundTarget <name>`) — hands off target
   selection to one of KAPE's own built-in `!`-prefixed presets instead,
   e.g. `-CompoundTarget SANS_Triage` (equivalent to `--target
