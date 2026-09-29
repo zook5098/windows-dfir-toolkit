@@ -44,7 +44,7 @@ docs/         -> methodology notes, ATT&CK mapping
 | MFT | `$MFT` | File creation/modification/deletion, timestomping detection |
 | Registry (Run keys, Services, UserAssist) | NTUSER.DAT, SYSTEM, SOFTWARE hives | Persistence, program execution history |
 | Amcache / Shimcache | AmCache.hve, SYSTEM hive | Execution evidence even after deletion |
-| Scheduled Tasks | `C:\Windows\System32\Tasks` | Persistence |
+| Scheduled Tasks | `C:\Windows\System32\Tasks` | Collected for manual review; parser support is planned |
 
 ## Pipeline
 
